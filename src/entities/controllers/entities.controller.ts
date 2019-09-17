@@ -1,9 +1,13 @@
 import { Controller, Get, Post, Put, Delete, Header, HttpCode, Param, Req, Body } from '@nestjs/common';
 import { Request } from 'express';
-import { CreateEntitiesDto, UpdateEntitiesDto } from '../../schemas/entities.dto';
+import { CreateEntitiesDto, UpdateEntitiesDto } from '../schemas/entities.dto';
+import { EntitiesService } from '../services/entities.service';
 
 @Controller('entities')
 export class EntitiesController {
+  constructor(
+    private readonly service: EntitiesService,
+  ) {}
 
   /**
    * GET
